@@ -49,7 +49,7 @@ public class CustomerService {
         return customerDtoList;
     }
 
-    public CustomerDto getCustomerById(String id) {
+    public CustomerDto getCustomerDtoById(String id) {
         Optional<Customer> optionalCustomer = customerRepository.findById(id);
 
         return optionalCustomer.map(customerDtoConverter::convert).orElse(new CustomerDto());
@@ -70,6 +70,11 @@ public class CustomerService {
             customerRepository.save(customer);
         });
         return customerOptional.map(customerDtoConverter::convert).orElse(new CustomerDto());
-
     }
+
+    protected Customer getCustomerById(String id){
+        return customerRepository.findById(id).orElse(new Customer());
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.cashincache.model;
 
+
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -11,11 +12,18 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Customer {
+public class Account {
     @Id
     private String id;
-    private String name;
-    private Integer dateOfBirth;
-    private City City;
-    private String address;
+
+    private String customerId;
+
+    private Double balance;
+
+    private City city;
+
+    private Currency currency;
+
+
+
 }

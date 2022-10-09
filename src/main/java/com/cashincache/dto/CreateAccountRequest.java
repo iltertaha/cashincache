@@ -7,6 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateCustomerRequest extends BaseCustomerRequest {
+public class CreateAccountRequest extends BaseAccountRequest {
     private String id;
 }
