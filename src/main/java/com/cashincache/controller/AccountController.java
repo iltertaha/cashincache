@@ -54,7 +54,7 @@ public class AccountController {
 
     @PutMapping("/deposit/{id}/{amount}")
     public ResponseEntity<AccountDto> addMoney(@PathVariable String id, @PathVariable Double amount){
-        return ResponseEntity.ok(accountService.withdrawMoney(id, amount));
+        return ResponseEntity.ok(accountService.addMoney(id, amount));
     }
 
 
