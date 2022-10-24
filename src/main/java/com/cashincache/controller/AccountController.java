@@ -3,7 +3,6 @@ package com.cashincache.controller;
 import com.cashincache.dto.AccountDto;
 import com.cashincache.dto.CreateAccountRequest;
 import com.cashincache.dto.UpdateAccountRequest;
-import com.cashincache.repository.AccountRepository;
 import com.cashincache.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
