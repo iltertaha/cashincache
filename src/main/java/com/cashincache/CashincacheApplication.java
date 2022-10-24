@@ -1,13 +1,10 @@
 package com.cashincache;
 
-import com.cashincache.dto.CreateCustomerRequest;
 import com.cashincache.model.Account;
 import com.cashincache.model.City;
 import com.cashincache.model.Customer;
 import com.cashincache.repository.AccountRepository;
 import com.cashincache.repository.CustomerRepository;
-import com.cashincache.service.AccountService;
-import com.cashincache.service.CustomerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
