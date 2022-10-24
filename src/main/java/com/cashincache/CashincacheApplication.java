@@ -52,7 +52,15 @@ public class CashincacheApplication implements CommandLineRunner {
 				.dateOfBirth(1993)
 				.build();
 
-		customerRepository.saveAll(Arrays.asList(c1,c2,c3));
+		Customer c4 = Customer.builder()
+				.id("5534566")
+				.name("Sebastian Vettel")
+				.City(City.ANKARA)
+				.address("hogwarts")
+				.dateOfBirth(1994)
+				.build();
+
+		customerRepository.saveAll(Arrays.asList(c1,c2,c3,c4));
 
 		Account a1 = Account.builder()
 				.id("100")
@@ -71,13 +79,20 @@ public class CashincacheApplication implements CommandLineRunner {
 
 
 		Account a3 = Account.builder()
-				.id("100")
+				.id("102")
 				.customerId("1234564")
 				.city(City.ANKARA)
 				.balance(1600.0)
 				.build();
 
-		accountRepository.saveAll(Arrays.asList(a1,a2,a3));
+		Account a4 = Account.builder()
+				.id("103")
+				.customerId("5534566")
+				.city(City.ANKARA)
+				.balance(1600.0)
+				.build();
+
+		accountRepository.saveAll(Arrays.asList(a1,a2,a3,a4));
 
 	}
 }
