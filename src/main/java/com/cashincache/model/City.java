@@ -4,5 +4,7 @@ public enum City {
     ADANA,
     ANKARA,
     IZMIR,
-    ISTANBUL
+    ISTANBUL,
+    LONDRA,
+    DUBLIN
 }

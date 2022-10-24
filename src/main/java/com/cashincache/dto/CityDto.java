@@ -4,5 +4,7 @@ public enum CityDto {
     ADANA,
     ANKARA,
     IZMIR,
-    ISTANBUL
+    ISTANBUL,
+    LONDRA,
+    DUBLIN
 }
