@@ -35,7 +35,6 @@ public class AccountServiceTest {
                                             customerService,
                                             accountDtoConverter);
     }
-
     @Test
     public void whenCreateAccountCalledWithValidRequest_itShouldReturnValidAccountDto(){
         CreateAccountRequest createAccountRequest = new CreateAccountRequest("1234");
@@ -59,7 +58,6 @@ public class AccountServiceTest {
                 .customerId(createAccountRequest.getCustomerId())
                 .city(createAccountRequest.getCity())
                 .build();
-
 
         AccountDto accountDto = AccountDto.builder()
                 .id("1234")
