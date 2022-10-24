@@ -1,5 +1,5 @@
 package com.cashincache.model;
 
 public enum Currency {
-    TRY, EUR, USD
+    TRY, EUR, USD, GBP
 }
