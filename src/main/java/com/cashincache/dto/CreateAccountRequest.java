@@ -1,7 +1,6 @@
 package com.cashincache.dto;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
@@ -9,5 +8,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Builder
 public class CreateAccountRequest extends BaseAccountRequest {
+
     private String id;
 }

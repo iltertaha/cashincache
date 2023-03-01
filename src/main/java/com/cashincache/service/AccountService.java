@@ -4,6 +4,7 @@ import com.cashincache.dto.AccountDto;
 import com.cashincache.dto.AccountDtoConverter;
 import com.cashincache.dto.CreateAccountRequest;
 import com.cashincache.dto.UpdateAccountRequest;
+import com.cashincache.exception.CustomerNotFoundException;
 import com.cashincache.model.Account;
 import com.cashincache.model.Customer;
 import com.cashincache.repository.AccountRepository;
@@ -36,7 +37,7 @@ public class AccountService {
         Customer customer = customerService.getCustomerById(createAccountRequest.getCustomerId());
 
         if( customer.getId() == null || customer.getId().trim().equals("") ){
-            throw new RuntimeException("Customer not found");
+            throw new CustomerNotFoundException("Customer not found");
         }
         Account account = Account.builder()
                 .id(createAccountRequest.getId())
