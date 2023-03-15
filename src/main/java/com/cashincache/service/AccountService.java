@@ -10,6 +10,8 @@ import com.cashincache.repository.AccountRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.DirectExchange;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,12 +26,18 @@ public class AccountService {
     private final CustomerService customerService;
     private final AccountDtoConverter accountDtoConverter;
 
+    private final DirectExchange exchange;
+    private final AmqpTemplate rabbitTemplate;
+
     private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
 
-    public AccountService(AccountRepository accountRepository, CustomerService customerService, AccountDtoConverter accountDtoConverter) {
+    public AccountService(AccountRepository accountRepository, CustomerService customerService, AccountService accountService, AccountDtoConverter accountDtoConverter, DirectExchange exchange, AmqpTemplate rabbitTemplate) {
         this.accountRepository = accountRepository;
         this.customerService = customerService;
+
         this.accountDtoConverter = accountDtoConverter;
+        this.exchange = exchange;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     public AccountDto createAccount(CreateAccountRequest createAccountRequest){
@@ -114,4 +122,10 @@ public class AccountService {
         return accountOptional.map(accountDtoConverter::convert).orElse(new AccountDto());
 
     }
+
+    public void transferMoney(MoneyTransferRequest transferRequest) {
+        rabbitTemplate.convertAndSend(exchange.getName(), routingKey, transferRequest);
+    }
+
+
 }

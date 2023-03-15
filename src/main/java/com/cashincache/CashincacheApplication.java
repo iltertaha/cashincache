@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 @SpringBootApplication
+//@EnableRabbit
 public class CashincacheApplication implements CommandLineRunner {
 
 	private final AccountRepository accountRepository;

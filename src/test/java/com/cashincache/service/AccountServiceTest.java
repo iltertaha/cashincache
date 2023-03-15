@@ -3,19 +3,15 @@ package com.cashincache.service;
 import com.cashincache.dto.AccountDto;
 import com.cashincache.dto.AccountDtoConverter;
 import com.cashincache.dto.CreateAccountRequest;
-import com.cashincache.dto.CreateCustomerRequest;
 import com.cashincache.model.Account;
 import com.cashincache.model.City;
 import com.cashincache.model.Currency;
 import com.cashincache.model.Customer;
 import com.cashincache.repository.AccountRepository;
-import com.cashincache.repository.CustomerRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
-import static org.junit.Assert.*;
 
 public class AccountServiceTest {
 
@@ -33,7 +29,7 @@ public class AccountServiceTest {
 
         accountService = new AccountService(accountRepository,
                                             customerService,
-                                            accountDtoConverter);
+                accountService, accountDtoConverter, exchange, rabbitTemplate);
     }
     @Test
     public void whenCreateAccountCalledWithValidRequest_itShouldReturnValidAccountDto(){
