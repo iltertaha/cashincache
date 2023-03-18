@@ -2,6 +2,7 @@ package com.cashincache.controller;
 
 import com.cashincache.dto.AccountDto;
 import com.cashincache.dto.CreateAccountRequest;
+import com.cashincache.dto.MoneyTransferRequest;
 import com.cashincache.dto.UpdateAccountRequest;
 import com.cashincache.service.AccountService;
 import org.springframework.http.ResponseEntity;
@@ -59,7 +60,7 @@ public class AccountController {
     @PutMapping("/transfer")
     public ResponseEntity<String> transferMoney(@RequestBody MoneyTransferRequest transferRequest){
         accountService.transferMoney(transferRequest);
-        return ResponseEntity.ok("Money transfer request received").build();
+        return ResponseEntity.ok("Money transfer request received");
     }
 
 
